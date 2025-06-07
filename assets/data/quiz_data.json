@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "level": "beginner",
+    "question": "Apple",
+    "options": [
+      "사과",
+      "바나나",
+      "오렌지",
+      "포도"
+    ],
+    "answerIndex": 0,
+    "explanation": "'Apple' is '사과' in Korean."
+  },
+  {
+    "id": 2,
+    "level": "beginner",
+    "question": "Chair",
+    "options": [
+      "고양이",
+      "강아지",
+      "의자",
+      "호랑이"
+    ],
+    "answerIndex": 2,
+    "explanation": "'Chair' is '의자' in Korean."
+  },
+  {
+    "id": 3,
+    "level": "beginner",
+    "question": "Book",
+    "options": [
+      "연필",
+      "책",
+      "공책",
+      "가방"
+    ],
+    "answerIndex": 1,
+    "explanation": "'Book' is '책' in Korean."
+  },
+  {
+    "id": 4,
+    "level": "intermediate",
+    "question": "Computer",
+    "options": [
+      "텔레비전",
+      "휴대폰",
+      "컴퓨터",
+      "라디오"
+    ],
+    "answerIndex": 2,
+    "explanation": "'Computer' is '컴퓨터' in Korean."
+  },
+  {
+    "id": 5,
+    "level": "intermediate",
+    "question": "Coffee",
+    "options": [
+      "주스",
+      "녹차",
+      "물",
+      "커피"
+    ],
+    "answerIndex": 3,
+    "explanation": "'Coffee' is '커피' in Korean."
+  }
+]
