@@ -14,28 +14,27 @@ class QuizProvider with ChangeNotifier {
   List<Quiz> get quizzes => _quizzes;
   int get currentQuestionIndex => _currentQuestionIndex;
   int get score => _score;
+  Quiz? get currentQuestion => _quizzes.isNotEmpty ? _quizzes[_currentQuestionIndex] : null;
   String get characterMessage => _characterMessage;
   String get characterImage => _characterImage;
   bool get isAnswered => _isAnswered;
-  Quiz? get currentQuestion => _quizzes.isNotEmpty ? _quizzes[_currentQuestionIndex] : null;
 
   Future<void> loadQuizzes() async {
     final String response = await rootBundle.loadString('assets/data/quiz_data.json');
-    final List<dynamic> data = json.decode(response);
-    _quizzes = data.map((json) => Quiz.fromJson(json)).toList();
+    final data = await json.decode(response);
+    _quizzes = (data as List).map((i) => Quiz.fromJson(i)).toList();
     reset();
+    notifyListeners();
   }
 
-  Future<bool> answerQuestion(int selectedIndex) async {
-    if (_isAnswered) return false;
-
+  Future<bool> answerQuestion(int selectedOptionIndex) async {
     _isAnswered = true;
-    if (selectedIndex == currentQuestion!.answerIndex) {
+    if (selectedOptionIndex == currentQuestion!.answerIndex) {
       _score++;
-      _characterMessage = "That's right! You're amazing!";
+      _characterMessage = "That's correct! Great job!";
       _characterImage = 'assets/images/character_happy.png';
     } else {
-      _characterMessage = "Oh, not this one. Don't worry!";
+      _characterMessage = "Not quite. The correct answer was '${currentQuestion!.options[currentQuestion!.answerIndex]}'.";
       _characterImage = 'assets/images/character_sad.png';
     }
     notifyListeners();
